@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>chiniprompt</title>
+    <link rel="stylesheet" href="dist/bootstrap-5.3.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/index.css">
+    <script src="dist/vue-3.2.45/vue-3.2.45.min.js"></script>
+</head>
+<body>
+    <div id="app" v-cloak>
+        <div class="py-4 bg-info">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="mb-3">
+                            <label for="service" class="form-label fw-bold">Service</label>
+                            <input type="text" class="form-control bg-light" id="service" v-model="service">
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="mb-3">
+                            <label for="company" class="form-label fw-bold">Company</label>
+                            <input type="text" class="form-control bg-light" id="company" v-model="company">
+                        </div>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <button class="btn btn-primary btn-lg" @click="generatePrompt">Prompt</button>
+                </div>
+            </div>
+        </div>
+        <div class="mt-3">
+            <div class="container">
+                <div class="mb-3">
+                    <label for="prompt" class="form-label fw-bold">Prompt</label>
+                    <textarea class="form-control" id="prompt" style="font-family: monospace; font-size: 0.9em; height: 450px">{{ prompt }}</textarea>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="dist/bootstrap-5.3.3/js/bootstrap.bundle.min.js"></script>
+    <script src="js/index.js"></script>
+</body>
+</html>
