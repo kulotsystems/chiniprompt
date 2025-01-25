@@ -148,7 +148,7 @@ const app = Vue.createApp({
                 if(this.referenceURL !== '') {
                     this.prompt += `First, please read the content of this website: "${this.referenceURL}". You don't have to copy the article in that website, just determine its context. `;
                 }
-                this.prompt += `I'm creating an article${(this.referenceURL !== '' ? (', similar to the article in that website, ') : ' ')}with 1100 words or more for our website, [Company], to promote our home services. `;
+                this.prompt += `I'm creating an article${(this.referenceURL !== '' ? (', similar to the article in that website, ') : ' ')}with 1100 words or more for our website, [Company], to promote our home services like [Service]. `;
                 this.prompt += `Do not mention phrases like "In this article, " anymore. `;
                 this.prompt += `At least 15% of the article contains paragraphs with bullet points. `;
                 this.prompt += `This article will focus on [Service] and is written as if we are speaking directly to our customers. `;
