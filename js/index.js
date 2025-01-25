@@ -54,12 +54,26 @@ const app = Vue.createApp({
                     'Contact Us for Reliable [Service] ____',
                     'Contact [Company] Today for [Service]'
                 ]
-            }
+            },
+            reference: ''
         }
     },
 
     computed: {
+        // service slug
+        serviceSlug() {
+            return this.service.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
+        },
 
+        // reference url
+        referenceURL() {
+            let url = '';
+            const pattern = /^(https?:\/\/)?([\w-]+\.)+[\w-]+(\/[\w-]*)*(\?[^\s]*)?$/i;
+            if (pattern.test(this.reference)) {
+                url = this.reference;
+            }
+            return url;
+        }
     },
 
     watch: {
@@ -130,7 +144,11 @@ const app = Vue.createApp({
                 for (let i = 0; i < headers.length; i++) {
                     headerStr += headers[i] + "\n\n";
                 }
-                this.prompt  = `I'm creating an article with 1100 words or more for our website, [Company], to promote our home services. `;
+                this.prompt = ``;
+                if(this.referenceURL !== '') {
+                    this.prompt += `First, please read the content of this website: "${this.referenceURL}". `;
+                }
+                this.prompt += `I'm creating an article${(this.referenceURL !== '' ? (', similar to the article in that website, ') : ' ')}with 1100 words or more for our website, [Company], to promote our home services. `;
                 this.prompt += `At least 15% of the article contains paragraphs with bullet points. `;
                 this.prompt += `This article will focus on [Service] and is written as if we are speaking directly to our customers. `;
                 this.prompt += `At the beginning, start with two paragraphs with no header: the first paragraph is composed of 2 sentences summary that promotes the service, the second paragraph is a supporting introduction for the article. `;
@@ -138,7 +156,7 @@ const app = Vue.createApp({
                 this.prompt += `Do not remove the ____ because I will be the one to replace it with a place; You can reword the header but keep it "[Service] ____" whenever it's mentioned. `;
                 this.prompt += `Also, as much as possible mention "[Service]" as the service and "____" as the place enough times within the paragraphs. `;
                 this.prompt += `In the very last part, include a sentence mentioning [[email]] and [[phone]] placeholders.`
-                
+
                 // parse prompt
                 this.prompt = this.prompt.replaceAll('[Service]', this.service);
                 this.prompt = this.prompt.replaceAll('[service]', this.service);
@@ -155,9 +173,10 @@ const app = Vue.createApp({
          * @method storeData
          */
         storeData() {
-            localStorage.setItem('service', this.service);
-            localStorage.setItem('company', this.company);
-            localStorage.setItem('prompt' , this.prompt);
+            localStorage.setItem('service'  , this.service);
+            localStorage.setItem('company'  , this.company);
+            localStorage.setItem('prompt'   , this.prompt);
+            localStorage.setItem('reference', this.reference);
         },
 
         /**
@@ -177,6 +196,11 @@ const app = Vue.createApp({
             const storedPrompt = localStorage.getItem('prompt');
             if (storedPrompt) {
                 this.prompt = storedPrompt;
+            }
+
+            const storedReference = localStorage.getItem('reference');
+            if (storedReference) {
+                this.reference = storedReference;
             }
         }
     },

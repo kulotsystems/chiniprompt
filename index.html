@@ -13,16 +13,22 @@
         <div class="py-4 bg-info">
             <div class="container">
                 <div class="row">
-                    <div class="col-sm-6">
+                    <div class="col-md-3 col-sm-6">
                         <div class="mb-3">
                             <label for="service" class="form-label fw-bold">Service</label>
                             <input type="text" class="form-control bg-light" id="service" v-model="service">
                         </div>
                     </div>
-                    <div class="col-sm-6">
+                    <div class="col-md-3 col-sm-6">
                         <div class="mb-3">
                             <label for="company" class="form-label fw-bold">Company</label>
                             <input type="text" class="form-control bg-light" id="company" v-model="company">
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-sm-12">
+                        <div class="mb-3">
+                            <label for="reference" class="form-label fw-bold">Reference</label>
+                            <input type="text" class="form-control bg-light" id="reference" v-model="reference" :placeholder="`https://website.com/${serviceSlug}`">
                         </div>
                     </div>
                 </div>
@@ -35,7 +41,7 @@
             <div class="container">
                 <div class="mb-3">
                     <label for="prompt" class="form-label fw-bold">Prompt</label>
-                    <textarea class="form-control" id="prompt" style="font-family: monospace; font-size: 0.9em; height: 450px">{{ prompt }}</textarea>
+                    <textarea class="form-control" id="prompt" style="font-family: monospace; font-size: 0.9em; height: 400px">{{ prompt }}</textarea>
                 </div>
             </div>
         </div>
