@@ -133,7 +133,7 @@ const app = Vue.createApp({
                     'Reach Out to [Company] for Professional [Service] ____',
                     'Book Your [Service] ____ Appointment Now',
                     'Get [Service] ____ Scheduled with [Company] Today',
-                    'Don\'t Wait—Schedule Your [Service] ____ Now',
+                    'Don\'t Wait - Schedule Your [Service] ____ Now',
                     'Book [Service] ____ with [Company] Today',
                     'Set Up Your [Service] ____ Appointment Today',
                     'Contact Us Now to Schedule [Service] ____',
