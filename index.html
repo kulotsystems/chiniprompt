@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-bs-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -10,38 +10,51 @@
 </head>
 <body>
     <div id="app" v-cloak>
-        <div class="py-4 bg-info">
+        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+            <div class="container">
+                <a class="navbar-brand text-info" href="#">chiniprompt</a>
+            </div>
+        </nav>
+        <div class="py-4">
             <div class="container">
                 <div class="row">
                     <div class="col-md-3 col-sm-6">
                         <div class="mb-3">
                             <label for="service" class="form-label fw-bold">Service</label>
-                            <input type="text" class="form-control bg-light" id="service" v-model="service">
+                            <input type="text" class="form-control" id="service" v-model="service">
                         </div>
                     </div>
                     <div class="col-md-3 col-sm-6">
                         <div class="mb-3">
                             <label for="company" class="form-label fw-bold">Company</label>
-                            <input type="text" class="form-control bg-light" id="company" v-model="company">
+                            <input type="text" class="form-control" id="company" v-model="company">
                         </div>
                     </div>
-                    <div class="col-md-6 col-sm-12">
+                    <div class="col-md-4 col-sm-12">
                         <div class="mb-3">
                             <label for="reference" class="form-label fw-bold">Reference</label>
-                            <input type="text" class="form-control bg-light" id="reference" v-model="reference" :placeholder="`https://website.com/${serviceSlug}`">
+                            <input type="text" class="form-control" id="reference" v-model="reference" :placeholder="`https://website.com/${serviceSlug}`">
+                        </div>
+                    </div>
+                    <div class="col-md-2 col-sm-12" align="right">
+                        <div class="mb-3">
+                            <label for="btn-prompt" class="form-label fw-bold d-none d-md-inline-block">&nbsp;</label>
+                            <input type="button" class="btn btn-outline-info d-block" id="btn-prompt" @click="generatePrompt" value="Prompt" style="width: 100%">
                         </div>
                     </div>
                 </div>
-                <div class="mb-3">
-                    <button class="btn btn-primary btn-lg" @click="generatePrompt">Prompt</button>
-                </div>
+
             </div>
         </div>
         <div class="mt-3">
             <div class="container">
-                <div class="mb-3">
-                    <label for="prompt" class="form-label fw-bold">Prompt</label>
-                    <textarea class="form-control" id="prompt" style="font-family: monospace; font-size: 0.9em; height: 400px">{{ prompt }}</textarea>
+                <div class="row">
+                    <div class="col-12">
+                        <div class="mb-3">
+                            <label for="prompt" class="form-label fw-bold">Prompt</label>
+                            <textarea class="form-control" id="prompt" style="font-family: monospace; font-size: 0.9em; height: 400px">{{ prompt }}</textarea>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
