@@ -155,7 +155,8 @@ const app = Vue.createApp({
                 this.prompt += `Then, please generate a comprehensive and engaging article with 1100 words or more, organized under the following headers:\n\n${headerStr}`;
                 this.prompt += `Do not remove the ____ because I will be the one to replace it with a place; You can reword the header but keep it "[Service] ____" whenever it's mentioned. `;
                 this.prompt += `Also, as much as possible mention "[Service]" as the service and "____" as the place enough times within the paragraphs. `;
-                this.prompt += `In the very last part, include a sentence mentioning [[email]] and [[phone]] placeholders.`
+                this.prompt += `In the very last part, include a sentence mentioning [[contact-us-link]] which we will replace by the text "contact us" and [[phone]] placeholder which we will replace by our phone number link. `;
+                this.prompt += `Remember that this article will be published in our own website, so there's no need to mention "visit our website" anymore.`;
 
                 // parse prompt
                 this.prompt = this.prompt.replaceAll('[Service]', this.service);
