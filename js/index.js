@@ -146,12 +146,13 @@ const app = Vue.createApp({
                 }
                 this.prompt = ``;
                 if(this.referenceURL !== '') {
-                    this.prompt += `First, please read the content of this website: "${this.referenceURL}". `;
+                    this.prompt += `First, please read the content of this website: "${this.referenceURL}". You don't have to copy the article in that website, just determine its context. `;
                 }
                 this.prompt += `I'm creating an article${(this.referenceURL !== '' ? (', similar to the article in that website, ') : ' ')}with 1100 words or more for our website, [Company], to promote our home services. `;
+                this.prompt += `Do not mention phrases like "In this article, " anymore. `;
                 this.prompt += `At least 15% of the article contains paragraphs with bullet points. `;
                 this.prompt += `This article will focus on [Service] and is written as if we are speaking directly to our customers. `;
-                this.prompt += `At the beginning, start with two paragraphs with no header: the first paragraph is composed of 2 sentences summary that promotes the service, the second paragraph is a supporting introduction for the article. `;
+                this.prompt += `At the beginning, start with two paragraphs with no header: the first paragraph is composed of 2 sentences summary that promotes the service and makes mention of "____" placeholder as the place, the second paragraph is a supporting introduction for the article. `;
                 this.prompt += `Then, please generate a comprehensive and engaging article with 1100 words or more, organized under the following headers:\n\n${headerStr}`;
                 this.prompt += `Do not remove the ____ because I will be the one to replace it with a place; You can reword the header but keep it "[Service] ____" whenever it's mentioned. `;
                 this.prompt += `Also, as much as possible mention "[Service]" as the service and "____" as the place or "[Service] ____" as combined enough times within the paragraphs for better SEO purposes. `;
