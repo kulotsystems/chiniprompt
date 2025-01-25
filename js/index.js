@@ -52,7 +52,7 @@ const app = Vue.createApp({
                     'Schedule [Service] ____ Today',
                     'Schedule Your [Service] ____ Today',
                     'Contact Us for Reliable [Service] ____',
-                    'Contact [Company] Today for [Service]'
+                    'Contact [Company] Today for [Service] ____'
                 ]
             },
             reference: ''
